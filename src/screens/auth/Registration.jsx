@@ -108,7 +108,7 @@ const Registration = ({navigation}) => {
               </View>
             </View>
             {/* Button */}
-            <TouchableOpacity style={styles.buttonView}>
+            <TouchableOpacity style={styles.buttonView} onPress={() => navigation.navigate('Verification')}>
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
             <View style={{width:'80%'}}>
