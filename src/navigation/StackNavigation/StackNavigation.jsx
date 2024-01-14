@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import Splash from '../../screens/auth/Splash';
 import Login from '../../screens/auth/Login';
 import Registration from '../../screens/auth/Registration';
+import ForgetPassword from '../../screens/auth/ForgetPassword';
 
 const Stack = createStackNavigator();
 const StackNavigation = () => {
@@ -11,6 +12,7 @@ const StackNavigation = () => {
         <Stack.Screen name='Splash' component={Splash} options={{headerShown:false}}/>
         <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
         <Stack.Screen name='Registration' component={Registration} options={{headerShown:false}}/>
+        <Stack.Screen name='ForgetPassword' component={ForgetPassword} options={{headerShown:false}}/>
     </Stack.Navigator>
   )
 }

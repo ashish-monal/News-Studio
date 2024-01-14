@@ -16,7 +16,7 @@ import {
   import BouncyCheckbox from 'react-native-bouncy-checkbox';
   
 
-const Registration = () => {
+const Registration = ({navigation}) => {
     const [isMediaReporter, setIsMediaReporter] = useState(false);
     const [isVisitor, setIsVisitor] = useState(false);
   
@@ -111,6 +111,11 @@ const Registration = () => {
             <TouchableOpacity style={styles.buttonView}>
               <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
+            <View style={{width:'80%'}}>
+        <TouchableOpacity style={{padding: 10}} onPress={()=> navigation.navigate('Login')}>
+          <Text style={[styles.textColor,{textAlign:'center'}]}>Already have an account ?</Text>
+        </TouchableOpacity>
+        </View>
             {/* or sign in with  */}
             <View style={styles.oRView}>
               <Text style={styles.textColor}>
