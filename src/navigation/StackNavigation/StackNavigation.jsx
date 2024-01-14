@@ -5,6 +5,7 @@ import Login from '../../screens/auth/Login';
 import Registration from '../../screens/auth/Registration';
 import ForgetPassword from '../../screens/auth/ForgetPassword';
 import Verification from '../../screens/auth/Verification';
+import CitySearch from '../../screens/auth/CitySearch';
 
 const Stack = createStackNavigator();
 const StackNavigation = () => {
@@ -15,6 +16,7 @@ const StackNavigation = () => {
         <Stack.Screen name='Registration' component={Registration} options={{headerShown:false}}/>
         <Stack.Screen name='ForgetPassword' component={ForgetPassword} options={{headerShown:false}}/>
         <Stack.Screen name='Verification' component={Verification} options={{headerShown:false}}/>
+        <Stack.Screen name='CitySearch' component={CitySearch} options={{headerShown:false}}/>
     </Stack.Navigator>
   )
 }
