@@ -13,20 +13,36 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import citylist from '../../assets/data/CityList.json';
 
-const RenderItem = React.memo(({ item }) => {
+const RenderItem = React.memo(({ item, onSelect, selected }) => {
+  const backgroundColor = selected ? '#1b98ff' : 'white';
+  const textColor = selected ? 'white' : 'black';
+
   return (
-    <TouchableOpacity style={{ flexDirection: 'row', gap: 10, padding: 10, width: '90%', alignSelf: 'center', marginVertical: 10 }}>
-      <FontAwesome name="location-arrow" size={24} color="gray" />
-      <Text>{item.name}</Text>
+    <TouchableOpacity
+      style={{
+        flexDirection: 'row',
+        gap: 10,
+        padding: 10,
+        width: '90%',
+        alignSelf: 'center',
+        marginVertical: 10,
+        backgroundColor,
+        borderRadius:10
+      }}
+      onPress={() => onSelect(item)}
+    >
+      <FontAwesome name="location-arrow" size={24} color={textColor} />
+      <Text style={{ color: textColor }}>{item.name}</Text>
     </TouchableOpacity>
   );
 }, (prevProps, nextProps) => {
-  return prevProps.item.id === nextProps.item.id;
+  return prevProps.item.id === nextProps.item.id && prevProps.selected === nextProps.selected;
 });
 
-const CitySearch = () => {
+const CitySearch = ({ navigation }) => {
   const [data, setData] = useState(citylist);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     // Filter data based on the search query
@@ -38,6 +54,10 @@ const CitySearch = () => {
 
   const handleSearch = (text) => {
     setSearchQuery(text);
+  };
+
+  const handleItemSelect = (item) => {
+    setSelectedItem(item);
   };
 
   return (
@@ -61,10 +81,23 @@ const CitySearch = () => {
       <View style={{ width: '100%', flex: 1 }}>
         <FlatList
           data={data}
-          renderItem={({ item }) => <RenderItem item={item} />}
+          renderItem={({ item }) => (
+            <RenderItem
+              item={item}
+              onSelect={handleItemSelect}
+              selected={item === selectedItem}
+            />
+          )}
           keyExtractor={(item) => item.id}
         />
       </View>
+      {selectedItem && (
+        <View style={{ position: 'absolute', width: '50%', bottom: 0 }}>
+          <TouchableOpacity style={styles.buttonView} onPress={() => navigation.navigate('CitySearch')}>
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -93,5 +126,17 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     width: '80%',
     color: 'gray',
+  },
+  buttonView: {
+    backgroundColor: '#1b98ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 15,
+    borderRadius: 10,
+    marginVertical: 10,
+  },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
   },
 });
