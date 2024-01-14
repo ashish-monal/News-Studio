@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-const Verification = () => {
+const Verification = ({navigation}) => {
   const [timer, setTimer] = useState(30);
   const [timerActive, setTimerActive] = useState(true);
   useEffect(() => {
@@ -90,7 +90,7 @@ const Verification = () => {
         </View>
       )}
       <View style={{width: '80%'}}>
-        <TouchableOpacity style={styles.buttonView}>
+        <TouchableOpacity style={styles.buttonView} onPress={() => navigation.navigate('CitySearch')}>
           <Text style={styles.buttonText}>Verify</Text>
         </TouchableOpacity>
       </View>
