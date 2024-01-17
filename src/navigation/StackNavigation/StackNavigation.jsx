@@ -6,6 +6,12 @@ import Registration from '../../screens/auth/Registration';
 import ForgetPassword from '../../screens/auth/ForgetPassword';
 import Verification from '../../screens/auth/Verification';
 import CitySearch from '../../screens/auth/CitySearch';
+import BottomNavigation from '../BottomNavigation/BottomNavigation';
+import UserProfile from '../../screens/app/UserProfile';
+import UserWallet from '../../screens/app/UserWallet';
+import TermsAndCondition from '../../screens/app/TermsAndCondition';
+import About from '../../screens/app/About';
+import ReferAndEarn from '../../screens/app/ReferAndEarn';
 
 const Stack = createStackNavigator();
 const StackNavigation = () => {
@@ -17,6 +23,12 @@ const StackNavigation = () => {
         <Stack.Screen name='ForgetPassword' component={ForgetPassword} options={{headerShown:false}}/>
         <Stack.Screen name='Verification' component={Verification} options={{headerShown:false}}/>
         <Stack.Screen name='CitySearch' component={CitySearch} options={{headerShown:false}}/>
+        <Stack.Screen name='UserProfile' component={UserProfile} options={{headerShown:true}}/>
+        <Stack.Screen name='UserWallet' component={UserWallet} options={{headerShown:true}}/>
+        <Stack.Screen name='TermsandCondition' component={TermsAndCondition} options={{headerShown:true}}/>
+        <Stack.Screen name='About' component={About} options={{headerShown:true}}/>
+        <Stack.Screen name='ReferandEarn' component={ReferAndEarn} options={{headerShown:true}}/>
+        <Stack.Screen name='BottomNavigation' component={BottomNavigation} options={{headerShown:false}}/>
     </Stack.Navigator>
   )
 }
