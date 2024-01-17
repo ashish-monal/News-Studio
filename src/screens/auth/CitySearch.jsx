@@ -12,6 +12,7 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import citylist from '../../assets/data/CityList.json';
+import { useNavigation } from '@react-navigation/native';
 
 const RenderItem = React.memo(({ item, onSelect, selected }) => {
   const backgroundColor = selected ? '#1b98ff' : 'white';
@@ -39,7 +40,8 @@ const RenderItem = React.memo(({ item, onSelect, selected }) => {
   return prevProps.item.id === nextProps.item.id && prevProps.selected === nextProps.selected;
 });
 
-const CitySearch = ({ navigation }) => {
+const CitySearch = () => {
+  const navigation = useNavigation();
   const [data, setData] = useState(citylist);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
@@ -58,6 +60,13 @@ const CitySearch = ({ navigation }) => {
 
   const handleItemSelect = (item) => {
     setSelectedItem(item);
+  };
+
+  const handleNext = () => {
+    if (selectedItem) {
+      // Navigate to BottomNavigation with selected city as a parameter
+      navigation.navigate('BottomNavigation', { selectedCity: selectedItem.name });
+    }
   };
 
   return (
@@ -93,7 +102,7 @@ const CitySearch = ({ navigation }) => {
       </View>
       {selectedItem && (
         <View style={{ position: 'absolute', width: '50%', bottom: 0 }}>
-          <TouchableOpacity style={styles.buttonView} onPress={() => navigation.navigate('CitySearch')}>
+          <TouchableOpacity style={styles.buttonView} onPress={handleNext}>
             <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
         </View>
