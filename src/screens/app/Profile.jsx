@@ -37,7 +37,7 @@ const Profile = ({navigation}) => {
           <Text style={styles.text}>Boost your post</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('UserWallet')}>
+        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('Notification')}>
           <Ionicons name="notifications-outline" size={24} color="black" />
           <Text style={styles.text}>Notifications</Text>
         </TouchableOpacity>
