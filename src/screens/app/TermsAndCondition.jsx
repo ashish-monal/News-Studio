@@ -24,7 +24,7 @@ const TermsAndCondition = () => {
             borderRadius: 10,
           }}
           onPress={() => handleOpenClose(index)}>
-          <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black' }}>{item.name}</Text>
+          <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black',textAlign:'center' }}>{item.name}</Text>
           {isOpen && (
             <Text style={{ marginVertical: 10, fontSize: 16, fontWeight: '500', color: 'black' }}>
               {item.Description}
