@@ -13,6 +13,8 @@ import TermsAndCondition from '../../screens/app/TermsAndCondition';
 import About from '../../screens/app/About';
 import ReferAndEarn from '../../screens/app/ReferAndEarn';
 import Notification from '../../screens/app/Notification';
+import MyPost from '../../screens/app/MyPost';
+import BoostYourPost from '../../screens/app/BoostYourPost';
 
 const Stack = createStackNavigator();
 const StackNavigation = () => {
@@ -30,6 +32,8 @@ const StackNavigation = () => {
         <Stack.Screen name='About' component={About} options={{headerShown:true}}/>
         <Stack.Screen name='ReferandEarn' component={ReferAndEarn} options={{headerShown:true}}/>
         <Stack.Screen name='Notification' component={Notification} options={{headerShown:true}}/>
+        <Stack.Screen name='My Post' component={MyPost} options={{headerShown:true}}/>
+        <Stack.Screen name='Boost Post' component={BoostYourPost} options={{headerShown:true}}/>
         <Stack.Screen name='BottomNavigation' component={BottomNavigation} options={{headerShown:false}}/>
     </Stack.Navigator>
   )
