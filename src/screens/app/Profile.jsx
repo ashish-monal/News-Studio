@@ -27,12 +27,12 @@ const Profile = ({navigation}) => {
           <Text style={styles.text}>My Wallet</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('UserWallet')}>
+        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('My Post')}>
           <Feather name="edit" size={24} color="black" />
           <Text style={styles.text}>My Post</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('UserWallet')}>
+        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('Boost Post')}>
           <Ionicons name="rocket-outline" size={24} color="black" />
           <Text style={styles.text}>Boost your post</Text>
         </TouchableOpacity>
