@@ -41,7 +41,7 @@ const NewsList = ({NewsData}) => {
                 resizeMode="cover"
                 style={{width: 50, height: 50, borderRadius: 25}}
               />
-              <Text style={{fontSize: 16, fontWeight: '600'}}>
+              <Text style={{fontSize: 16, fontWeight: '600',color:'black'}}>
                 {item?.author}
               </Text>
             </View>
@@ -54,12 +54,12 @@ const NewsList = ({NewsData}) => {
                 gap: 10,
                 width: '35%',
               }}>
-              <Text style={{fontSize: 14, fontWeight: '600'}}>{item.date}</Text>
-              <Text style={{fontSize: 14, fontWeight: '600'}}>{item.time}</Text>
+              <Text style={{fontSize: 14, fontWeight: '600',color:'black'}}>{item.date}</Text>
+              <Text style={{fontSize: 14, fontWeight: '600',color:'black'}}>{item.time}</Text>
             </View>
           </View>
           <View style={{padding: 10}}>
-            <Text style={{textAlign:'justify',fontSize:16,fontWeight:'500'}}>{item.description}</Text>
+            <Text style={{textAlign:'justify',fontSize:16,fontWeight:'500',color:'black'}}>{item.description}</Text>
           </View>
         </View>
       </View>
