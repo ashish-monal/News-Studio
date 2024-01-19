@@ -89,10 +89,10 @@ const Registration = ({navigation}) => {
       Alert.alert('User created successfully');
     } catch (error) {
       // Handle errors during registration
-      console.error('Error during registration:', error);
+      console.log('Error during registration:', error.nativeErrorMessage);
       Alert.alert(
         'Error during registration. Please try again.',
-        error.message,
+        error.nativeErrorMessage,
       );
     } finally {
       // Any cleanup or additional actions can be performed in the finally block
@@ -167,7 +167,7 @@ const Registration = ({navigation}) => {
           />
         </View>
         {/* TextInput field for the Password */}
-        <View style={styles.inputView}>
+        <View style={[styles.inputView,{alignItems:'center'}]}>
           <MaterialIcons
             name="password"
             size={24}
