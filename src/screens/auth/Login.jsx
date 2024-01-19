@@ -6,75 +6,105 @@ import {
   ScrollView,
   Image,
   TextInput,
+  Alert,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import auth from '@react-native-firebase/auth';
 const Login = ({navigation}) => {
-  return (
-      <SafeAreaView style={styles.mainContaner}>
-        {/* Header Image */}
-        <View style={styles.imageView}>
-          <Image
-            source={require('../../assets/newsLogo.png')}
-            resizeMode="contain"
-            style={styles.imageStyle}
-          />
-        </View>
-        {/* Login Text */}
-        <View style={styles.textView}>
-          <Text style={styles.textColor}>Login</Text>
-        </View>
-        {/* TextInput field for the Email */}
-        <View style={styles.inputView}>
-          <Feather
-            name="user"
-            size={24}
-            color="gray"
-            style={{marginTop: Platform.OS === 'ios' ? 0 : 10}}
-          />
-          <TextInput
-            style={styles.textInputStyle}
-            placeholderTextColor="gray"
-            placeholder="User Id"
-          />
-        </View>
-        {/* TextInput field for the Password */}
-        <View style={styles.inputView}>
-          <MaterialIcons
-            name="password"
-            size={24}
-            color="gray"
-            style={{marginTop: Platform.OS === 'ios' ? 0 : 10}}
-          />
-          <TextInput
-            style={styles.textInputStyle}
-            placeholderTextColor="gray"
-            placeholder="Password"
-          />
-        </View>
-        {/*Forget Password View */}
-        <View style={{width:'80%'}}>
-        <TouchableOpacity style={{padding: 10}} onPress={()=> navigation.navigate('ForgetPassword')}>
-          <Text style={[styles.textColor,{textAlign:'center'}]}>Forget Password ?</Text>
-        </TouchableOpacity>
-        </View>
-       
-        {/* Button */}
-        <View style={{width:'80%'}}>
-        <TouchableOpacity style={styles.buttonView}>
-              <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-            </View>
+  const [userid, setUserId] = useState('');
+  const [password, setPassword] = useState('');
 
-            {/*Don;t have an account View */}
-        <View style={{width:'80%'}}>
-        <TouchableOpacity style={{padding: 10}} onPress={()=> navigation.navigate('Registration')}>
-          <Text style={[styles.textColor,{textAlign:'center'}]}>Don't have an account ?</Text>
+  const handleSubmit = () => {
+    auth()
+      .signInWithEmailAndPassword(userid, password)
+      .then(response => {
+        console.log(response);
+        navigation.navigate('CitySearch')
+      })
+      .catch(error => {
+        console.log(error);
+        Alert.alert(error.nativeErrorMessage)
+      });
+  };
+
+  return (
+    <SafeAreaView style={styles.mainContaner}>
+      {/* Header Image */}
+      <View style={styles.imageView}>
+        <Image
+          source={require('../../assets/newsLogo.png')}
+          resizeMode="contain"
+          style={styles.imageStyle}
+        />
+      </View>
+      {/* Login Text */}
+      <View style={styles.textView}>
+        <Text style={styles.textColor}>Login</Text>
+      </View>
+      {/* TextInput field for the Email */}
+      <View style={styles.inputView}>
+        <Feather
+          name="user"
+          size={24}
+          color="gray"
+          style={{marginTop: Platform.OS === 'ios' ? 0 : 10}}
+        />
+        <TextInput
+          style={styles.textInputStyle}
+          placeholderTextColor="gray"
+          placeholder="User Id"
+          value={userid}
+          onChangeText={text => setUserId(text)}
+        />
+      </View>
+      {/* TextInput field for the Password */}
+      <View style={styles.inputView}>
+        <MaterialIcons
+          name="password"
+          size={24}
+          color="gray"
+          style={{marginTop: Platform.OS === 'ios' ? 0 : 10}}
+        />
+        <TextInput
+          style={styles.textInputStyle}
+          placeholderTextColor="gray"
+          placeholder="Password"
+          value={password}
+          onChangeText={text => setPassword(text)}
+        />
+      </View>
+      {/*Forget Password View */}
+      <View style={{width: '80%'}}>
+        <TouchableOpacity
+          style={{padding: 10}}
+          onPress={() => navigation.navigate('ForgetPassword')}>
+          <Text style={[styles.textColor, {textAlign: 'center'}]}>
+            Forget Password ?
+          </Text>
         </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      </View>
+
+      {/* Button */}
+      <View style={{width: '80%'}}>
+        <TouchableOpacity style={styles.buttonView} onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/*Don;t have an account View */}
+      <View style={{width: '80%'}}>
+        <TouchableOpacity
+          style={{padding: 10}}
+          onPress={() => navigation.navigate('Registration')}>
+          <Text style={[styles.textColor, {textAlign: 'center'}]}>
+            Don't have an account ?
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -82,14 +112,14 @@ export default Login;
 
 const styles = StyleSheet.create({
   mainContaner: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'white',
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   imageView: {
     marginVertical: 10,
-    alignItems:'center'
+    alignItems: 'center',
   },
   imageStyle: {
     height: 150,

@@ -52,11 +52,6 @@ const Profile = ({navigation}) => {
           <Text style={styles.text}>About</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('UserWallet')}>
-          <Entypo name="stopwatch" size={24} color="black" />
-          <Text style={styles.text}>Watch Ads & Earn</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity style={styles.touchView} onPress={() => navigation.navigate('ReferandEarn')}>
           <Feather name="share" size={24} color="black" />
           <Text style={styles.text}>Refer and Earn</Text>
