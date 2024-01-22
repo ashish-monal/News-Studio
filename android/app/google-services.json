@@ -1,26 +1,43 @@
 {
   "project_info": {
-    "project_number": "808491258267",
-    "project_id": "news-studio-07",
-    "storage_bucket": "news-studio-07.appspot.com"
+    "project_number": "884800813280",
+    "project_id": "news-studio-2a94d",
+    "storage_bucket": "news-studio-2a94d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:808491258267:android:17c16c9dcb01d96959d13e",
+        "mobilesdk_app_id": "1:884800813280:android:327afb0680c6c68aebb885",
         "android_client_info": {
           "package_name": "com.newsapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "884800813280-2ev1kkngeho716p8r0o0lk0kucnk4e4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyABnq7-LDsvvwizu24bQp-1pOTF_GNOs4A"
+          "current_key": "AIzaSyCgLiC4UfV793ZncRIaJP-hUfT0S2ZLnBE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884800813280-2ev1kkngeho716p8r0o0lk0kucnk4e4d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "884800813280-f2ivsbspfgstq502mttvcd5ui80tu98i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.NewsApp"
+              }
+            }
+          ]
         }
       }
     }

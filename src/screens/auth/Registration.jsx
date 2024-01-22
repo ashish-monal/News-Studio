@@ -71,6 +71,8 @@ const Registration = ({navigation}) => {
       // Create user with email and password
       await auth().createUserWithEmailAndPassword(email, password);
 
+     
+
       // Additional details to be sent during registration
       const userDetails = {
         email: email,
@@ -79,6 +81,7 @@ const Registration = ({navigation}) => {
         isMediaReporter: isMediaReporter,
         isVisitor: isVisitor,
       };
+    
 
       // You can now send userDetails to your backend or perform any additional actions
 
@@ -105,6 +108,8 @@ const Registration = ({navigation}) => {
       setIsVisitor(false);
     }
   };
+
+
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
