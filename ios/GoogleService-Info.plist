@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAakgVBTguEd_HxuD3JNmotHjPTzHd2Lfo</string>
+	<string>AIzaSyBh3I8GdvilGvU8fe-867dLdCOqcY_QIUQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>808491258267</string>
+	<string>884800813280</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>org.reactjs.native.example.NewsApp</string>
 	<key>PROJECT_ID</key>
-	<string>news-studio-07</string>
+	<string>news-studio-2a94d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>news-studio-07.appspot.com</string>
+	<string>news-studio-2a94d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:808491258267:ios:98fbddbd4175c0a459d13e</string>
+	<string>1:884800813280:ios:e855abd3cc0177f2ebb885</string>
 </dict>
 </plist>
